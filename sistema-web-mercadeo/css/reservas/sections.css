@@ -1,0 +1,72 @@
+/* section.css - Diseño Actualizado */
+
+/* --- Estilos de la Barra de Navegación (NAV) --- */
+nav { 
+    /* Usamos un color de fondo menos duro que el negro puro, o lo hacemos semitransparente */
+    background-color: rgba(26, 26, 26, 0.98); /* Oscuro con ligera transparencia */
+    
+    /* Agregamos Flexbox para centrar y distribuir mejor los enlaces */
+    display: flex;
+    justify-content: center; /* Centra los enlaces horizontalmente */
+    gap: 25px; /* Espacio uniforme entre los enlaces */
+    
+    padding: 15px 20px; /* Más padding vertical */
+    
+    /* La sombra se mantiene, pero le damos más dispersión */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+    
+    /* Hacemos que la NAV sea 'sticky' (opcional, para una mejor experiencia móvil) */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+nav a { 
+    color: var(--color-blanco);
+    text-decoration: none; 
+    
+    /* Eliminamos el margin-right para usar el 'gap' de flexbox */
+    /* margin-right: 15px; */ 
+    
+    font-weight: 500; /* Un poco menos bold, más minimalista */
+    letter-spacing: 0.5px; /* Pequeño espaciado para mejor lectura */
+    
+    /* Transición más rápida y para el color y el fondo */
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    
+    /* Pequeño padding para mejorar el área de clic (hitbox) */
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    color: var(--color-naranja-principal);
+    background-color: rgba(255, 255, 255, 0.05); /* Fondo sutil al pasar el mouse */
+}
+
+nav a:active {
+    /* Efecto al hacer clic para dar feedback */
+    color: var(--color-amarillo-secundario);
+}
+
+/* --- Estilos del Contenedor Principal --- */
+.container { 
+    /* ¡CAMBIO APLICADO AQUÍ! Máximo 500px de ancho */
+    max-width: 900px; 
+    
+    margin: 40px auto; /* Centrado automático */
+    padding: 30px; 
+    
+    background-color: var(--color-blanco);
+    
+    border-radius: 12px; 
+    
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilo para la división horizontal */
+hr {
+    border: none;
+    border-top: 1px solid var(--color-fondo-claro); /* Usa el color de fondo como separador suave */
+    margin: 30px 0;
+}

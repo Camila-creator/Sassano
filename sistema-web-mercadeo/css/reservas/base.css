@@ -1,0 +1,31 @@
+/* base.css */
+
+/* --- Paleta de Colores --- */
+:root {
+    --color-negro: #1a1a1a;
+    --color-blanco: #ffffff;
+    --color-naranja-principal: #ff6600; /* Naranja para énfasis */
+    --color-amarillo-secundario: #ffc107; /* Amarillo para botones/resaltar */
+    --color-fondo-claro: #f4f4f9; /* Gris muy claro para el fondo */
+}
+
+/* Estilos generales del cuerpo */
+body { 
+    font-family: 'Arial', sans-serif; /* Tipografía limpia */
+    margin: 0; 
+    padding: 0; 
+    background-color: var(--color-fondo-claro); 
+    color: var(--color-negro);
+}
+
+/* Estilos para enlaces y headings por defecto */
+a {
+    color: var(--color-naranja-principal);
+    text-decoration: none;
+}
+
+h2, h3 {
+    color: var(--color-negro);
+    border-bottom: 2px solid var(--color-amarillo-secundario);
+    padding-bottom: 5px;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Reservas Digital</title>
+    <link rel="stylesheet" href="css/reservas/main.css"> 
+</head>
+<body>
+   <div class="container" id="reservas">
+    <h2>Gestión de Reservas</h2>
+    
+    <div id="caja-formulario"> 
+        <form id="form-reserva">
+            <h3>Detalles del Cliente</h3>
+            <input type="text" id="nombre_cliente" placeholder="Nombre del Cliente" required>
+            <input type="text" id="apellido_cliente" placeholder="Apellido del Cliente" required>
+            <input type="tel" id="telefono_contacto" placeholder="Teléfono de Contacto para Confirmar" required>
+            
+            <h3>Detalles de la Reserva</h3>
+            <input type="text" id="tomada_por" placeholder="Nombre de quien toma la reserva" required>
+            
+            <label for="fecha_evento">Día/Fecha del Evento:</label>
+            <input type="date" id="fecha_evento" required>
+
+            <label for="hora_llegada">Hora de Llegada:</label>
+            <input type="time" id="hora_llegada" required>
+
+            <label>Número de Personas:</label>
+            <input type="number" id="pax_adultos" placeholder="Adultos" min="1" required>
+            <input type="number" id="pax_kids" placeholder="Niños (Kids)" min="0" value="0" required>
+            
+            <label for="tipo_menu">Tipo de Menú:</label>
+            <select id="tipo_menu" required>
+                <option value="" disabled selected>Selecciona un tipo de menú</option>
+                <option value="estandar">Menú Estándar</option>
+                <option value="vegetariano">Menú Vegetariano</option>
+                <option value="infantil">Menú Infantil</option>
+            </select>
+
+            <label for="consideraciones">Consideraciones Especiales / Preferencias:</label>
+            <textarea id="consideraciones" placeholder="Alergias, peticiones de mesa, etc." rows="3"></textarea>
+            
+            <button type="submit">Agregar Reserva</button>
+        </form>
+    </div>
+    
+    <hr> <div id="caja-tabla">
+        <button id="btn-exportar">Exportar Reservas (reservas.json)</button> 
+        
+        <h3>Reservas Agendadas</h3>
+        <table id="tabla-reservas" border="1" width="100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Cliente</th>
+                    <th>Teléfono</th>
+                    <th>Fecha / Hora</th>
+                    <th>Pax (A/N)</th>
+                    <th>Menú</th>
+                    <th>Tomada Por</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody id="lista-reservas">
+                </tbody>
+        </table>
+    </div>
+</div>
+
+
+    <script src="js/reservas.js"></script> 
+</body>
+</html>

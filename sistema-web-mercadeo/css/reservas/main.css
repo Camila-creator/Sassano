@@ -1,0 +1,166 @@
+/* main.css */
+
+
+/* 1. Importación de Archivos Base y Secciones (Mantener estas líneas) */
+@import url('base.css');
+@import url('sections.css');
+
+/* 2. Estilos del Formulario de Reserva */
+
+/* --- Estilos para la Caja del Formulario --- */
+#caja-formulario {
+    /* Estilo tipo tarjeta (card) para el formulario */
+    background-color: #f7f7f7; /* Color de fondo ligeramente distinto al del contenedor principal */
+    padding: 25px;
+    border-radius: 8px;
+    
+    /* Sombra interna sutil para destacarla del contenedor */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); 
+    
+    /* Aseguramos que siga centrada, aunque el formulario ya es centrado por flexbox */
+    margin: 0 auto; 
+}
+
+/* --- Estilos para la Caja de la Tabla --- */
+#caja-tabla {
+    /* Estilo de la caja donde se ven las reservas */
+    margin-top: 30px; 
+
+    padding: 20px;
+    background-color: var(--color-blanco); 
+    border: 1px solid #e0e0e0; /* Borde simple para definir el cuadrado/caja */
+    border-radius: 8px;
+    
+    /* Mantenemos una sombra ligera para que parezca elevado */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Ajuste Necesario --- */
+/* Como el contenedor principal (.container) ahora es más pequeño (500px), 
+   la tabla debe ajustarse para que no se vea comprimida. */
+
+
+/* Y aseguramos que el formulario dentro de la caja se centre si fuera necesario, 
+   aunque ya lo hace la regla anterior de #form-reserva */
+#form-reserva {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+/* Inputs, Selects y Textareas */
+#form-reserva input, 
+#form-reserva select, 
+#form-reserva textarea {
+    display: block;
+    width: 80%;
+    padding: 12px; /* Más padding para mejorar el tacto */
+    margin-bottom: 18px; /* Más espacio entre campos */
+    box-sizing: border-box; 
+    
+    /* Borde más sutil y esquinas más suaves */
+    border: 1px solid #e0e0e0; /* Gris muy claro */
+    border-radius: 8px; /* Esquinas más redondeadas */
+    
+    background-color: var(--color-fondo-claro); /* Fondo sutilmente gris para contraste */
+    color: var(--color-negro);
+    
+    transition: all 0.3s ease; /* Transición para todos los cambios visuales */
+}
+
+/* Efecto Focus: Borde grueso e iluminado */
+#form-reserva input:focus, 
+#form-reserva select:focus, 
+#form-reserva textarea:focus {
+    border-color: var(--color-naranja-principal);
+    box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.2); /* Sombra de enfoque naranja suave */
+    background-color: var(--color-blanco); /* Fondo blanco al enfocar */
+    outline: none;
+}
+
+/* Botón de Agregar Reserva */
+#form-reserva button[type="submit"] {
+    background-color: var(--color-naranja-principal);
+    color: var(--color-blanco);
+    padding: 14px 25px; /* Más grande y prominente */
+    border: none;
+    border-radius: 8px; /* Coherente con los inputs */
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600; /* Un poco más de peso */
+    box-shadow: 0 4px 6px rgba(255, 102, 0, 0.3); /* Sombra para profundidad */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+#form-reserva button[type="submit"]:hover {
+    background-color: #e65c00; 
+}
+#form-reserva button[type="submit"]:active {
+    transform: translateY(1px); /* Efecto de "presionar" */
+    box-shadow: 0 2px 4px rgba(255, 102, 0, 0.3);
+}
+
+/* 3. Estilos de la Tabla de Reservas */
+
+#tabla-reservas {
+    /* Hacemos que la tabla sea responsive horizontalmente */
+    display: block;
+    
+    overflow-x: auto; /* Permite scroll horizontal si la tabla es más ancha que 500px */
+    white-space: nowrap; /* Evita que los encabezados se rompan */
+}
+
+#tabla-reservas th, 
+#tabla-reservas td {
+    padding: 12px 15px; /* Más padding para celdas */
+    text-align: center;
+    
+    /* Usamos el color de fondo para la línea inferior, más suave */
+    border-bottom: 1px solid var(--color-fondo-claro); 
+}
+
+/* Encabezados (TH) */
+#tabla-reservas thead th {
+    background-color: var(--color-amarillo-secundario); 
+    color: var(--color-negro);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    /* No necesitamos poner text-align: center aquí porque la regla anterior ya lo hace */
+}
+
+/* Efecto Zebra (opcional, mejora la legibilidad) */
+#tabla-reservas tbody tr:nth-child(even) {
+    background-color: #fcfcfc; 
+}
+
+/* Botón de Borrado dentro de la tabla */
+#tabla-reservas button {
+    background-color: #e74c3c; 
+    color: var(--color-blanco);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+#tabla-reservas button:hover {
+    background-color: #c0392b;
+}
+
+/* Estilo para el botón de Exportar (Se mantiene sin cambios) */
+#btn-exportar {
+    background-color: #3498db;
+    color: var(--color-blanco);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 20px;
+    transition: background-color 0.2s ease;
+}
+#btn-exportar:hover {
+    background-color: #2980b9;
+}

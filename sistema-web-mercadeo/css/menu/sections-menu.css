@@ -1,0 +1,165 @@
+/* --- Estilos Generales de Producción --- */
+#menu-produccion {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 8px;
+}
+
+.produccion-header h1 {
+    color: #333;
+    border-bottom: 3px solid #ccc;
+    padding-bottom: 10px;
+}
+
+/* --- Estilos de la Ficha Individual --- */
+.ficha-producto {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nombre-plato {
+    color: #0056b3; /* Azul para resaltar el nombre */
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.ficha-contenido {
+    display: flex;
+    gap: 30px; /* Espacio entre la foto y los detalles */
+    align-items: flex-start; /* Alinea arriba el contenido */
+}
+
+/* --- Estilos de la Imagen --- */
+.ficha-imagen {
+    flex: 0 0 40%; /* La imagen ocupa el 40% del espacio */
+    max-width: 400px;
+}
+
+.ficha-imagen img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Estilos de los Detalles (Ingredientes/Montaje) --- */
+.ficha-detalles {
+    flex: 1; /* Ocupa el 60% restante */
+}
+
+.ficha-detalles h3 {
+    color: #555;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 5px;
+    margin-top: 10px;
+}
+
+.lista-ingredientes {
+    list-style: none; /* Quitar viñetas */
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.lista-ingredientes li {
+    background: #eef; /* Fondo ligero para cada ingrediente */
+    padding: 5px 10px;
+    margin-bottom: 4px;
+    border-radius: 3px;
+    font-size: 1.1em;
+}
+
+.montaje-instrucciones {
+    line-height: 1.6;
+    color: #333;
+    font-style: italic;
+}
+
+@media print {
+    /* --- 1. Control de Elementos y Cuerpo --- */
+    
+    /* Ocultar elementos irrelevantes (¡Oculta el botón!) */
+    footer, nav, .btn, #btn-imprimir-menu { 
+        display: none !important;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif; 
+        font-size: 10pt; /* Reducir tamaño base de fuente */
+    }
+
+    /* --- 2. Control de Fichas (Evitar Cortes y Reducción) --- */
+
+    #menu-produccion {
+        width: 100%;
+        padding: 0.5cm; /* Margen menor para el papel */
+    }
+
+    .ficha-producto {
+        /* Fuerza la ficha completa a no romperse entre páginas */
+        page-break-inside: avoid; 
+        
+        /* Reducir márgenes y padding para ahorrar espacio */
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ccc; /* Bordes más sutiles */
+    }
+
+    /* --- 3. Reducción de Contenido y Diseño Horizontal --- */
+
+    .ficha-contenido {
+        display: flex;
+        gap: 15px; /* Reducir el espacio entre imagen y detalles */
+        align-items: flex-start;
+    }
+    
+    /* Reducir el tamaño de la imagen (de 40% a 30%) */
+    .ficha-imagen {
+        flex: 0 0 30%; 
+        max-width: 200px; /* Limitar el ancho máximo de la imagen */
+    }
+    
+    .ficha-imagen img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Ajustar el texto de detalles */
+    .ficha-detalles {
+        flex: 1;
+    }
+
+    /* Reducir el tamaño de los títulos */
+    .nombre-plato {
+        font-size: 1.2em; /* De 1.8em a 1.2em */
+        margin-bottom: 5px;
+    }
+    .ficha-detalles h3 {
+        font-size: 1em;
+        margin-top: 5px;
+        margin-bottom: 2px;
+    }
+
+    /* Lista de ingredientes más compacta */
+    .lista-ingredientes li {
+        font-size: 0.9em; /* Reducción adicional en la lista */
+        padding: 2px 5px;
+        margin-bottom: 2px;
+        background: none; /* Quitar fondo de lista para impresión */
+    }
+    
+    .montaje-instrucciones {
+        font-size: 0.9em;
+        margin-top: 5px;
+    }
+    
+}
